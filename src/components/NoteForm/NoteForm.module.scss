@@ -1,0 +1,70 @@
+.wrapper {
+    position: fixed;
+    height: fit-content;
+    background-color: white;
+    width: fit-content;
+    margin: 10vw 35vw 0 35vw;
+    padding: 20px 0 50px 0;
+    z-index: 1;
+    box-shadow: 3px 3px 8px black;
+    min-width: 500px;
+}
+
+.closeButton {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    border: none;
+    cursor: pointer;
+
+    &::before, &::after {
+        content: '';
+        background-color: blue;
+        width: 4px;
+        height: 25px;
+        display: block;
+        
+    }
+
+    &::before {
+        transform: translate(10px, 15px) rotate(45deg) ;
+    }
+
+    &::after {
+        transform: translate(10px, -10px) rotate(-45deg) ;
+    }
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h1 {
+    color: blue;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.input, .textarea {
+    margin: 20px;
+    padding: 10px;
+    font-size: 15pt;
+    border: none;
+    border-bottom: 2px solid gray;
+}
+
+.textarea {
+    height: 150px;
+    resize: none;
+}
+
+
+.textarea:focus, input:focus {
+    outline: none;
+}

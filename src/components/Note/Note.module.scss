@@ -1,0 +1,31 @@
+.note {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    box-shadow: 2px 2px 8px black;
+    word-wrap: break-word;
+    animation-name: showNote;
+    animation-duration: 0.5s;
+
+    h2 {
+        text-align: center;
+    }
+
+    p {
+        margin: 20px 10px;
+        font-weight: 500;
+    }
+
+
+}
+
+@keyframes showNote {
+    from {
+        opacity: 0.1;
+        transform: translateY(25px);
+
+    }
+    to {
+        opacity: 1.0; 
+    }
+}
