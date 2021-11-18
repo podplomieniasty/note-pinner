@@ -1,23 +1,27 @@
 import React from 'react'
 import styles from './Note.module.scss';
 import PropTypes from 'prop-types';
+import AppContext from '../../context';
 
 
 
 const Note = ({posX, posY, title, content, bgColor}) => {
 
     return(
-        <div 
+        <AppContext.Consumer>
+        {(context) => (
+            <div 
             className={styles.note}
             style={{
                 top: posY,
                 left: posX,
-                backgroundColor: bgColor || 'white',
+                backgroundColor: bgColor || context.randHex(),
             }}
-        >
+            >
             <h2>{title}</h2>
             <p>{content}</p>
-        </div>
+        </div>)}
+        </AppContext.Consumer>
     )
 }
 
