@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import NoteForm from "./components/NoteForm/NoteForm";
 import AppContext from "./context";
 
+
 const App = () => {
 
 	const storedNotes = JSON.parse(localStorage.getItem("notes")) || [];
@@ -59,15 +60,17 @@ const App = () => {
 		setNotes([...notes, note]);
 		toggleNoteForm(false);
 	};
-
 	// usuwanie, nie działa, naprawić
 	const removeNote = (e) => {
 		e.preventDefault();
-		localStorage.clear();
-		setNotes([]);
-		//const n = storedNotes.filter(x => x === sr);
-		//console.log(n);
-
+		const childs = Array.from(
+			e.target.parentElement.parentElement.children);
+		const indexToDrop = childs.indexOf(
+			childs.find(x => x === e.target.parentElement));
+		const newNotes = storedNotes.filter(
+			x => storedNotes.indexOf(x) !== indexToDrop);
+		localStorage.setItem("notes", JSON.stringify([...newNotes]));
+		setNotes([...newNotes]);
 
 	}
 
