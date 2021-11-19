@@ -9,14 +9,39 @@
 
     h2 {
         text-align: center;
+        margin-top: 20px;
     }
 
     p {
         margin: 20px 10px;
         font-weight: 500;
     }
+}
 
+.dropNote {
+    position: absolute;
+    display: block;
+    right: 15px;
+    border: none;
+    cursor: pointer;
 
+    &::before, &::after {
+        position: absolute;
+        display: block;
+        width: 5px;
+        height: 25px;
+        background-color: darkslategray;
+        border-radius: 25%;
+        content: '';
+    }
+    &::before {
+        transform: rotate(45deg);
+    }
+    &::after {
+        transform: rotate(-45deg);
+    }
+
+    
 }
 
 @keyframes showNote {

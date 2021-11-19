@@ -1,33 +1,35 @@
 import "./App.css";
 import Wrapper from "./components/Wrapper/Wrapper";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./components/Header/Header";
 import NoteForm from "./components/NoteForm/NoteForm";
 import AppContext from "./context";
 
 const App = () => {
 
+	const storedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+
 	const [showNoteForm, toggleNoteForm] = useState(false);
-	const [notes, setNotes] = useState([]);
+	const [notes, setNotes] = useState(storedNotes);
 	const [latestCords, setCords] = useState([0, 0]);
 
 	// Load data to page
-	useEffect(() => {
-		const getTasks = async () => {
-		const serverNotes = await fetchTasks();
-		setNotes(serverNotes);
-		};
+	// useEffect(() => {
+	// 	const getTasks = async () => {
+	// 	const serverNotes = await fetchTasks();
+	// 	setNotes(serverNotes);
+	// 	};
 
-		getTasks();
-	}, []);
+	// 	getTasks();
+	// }, []);
 
-	// Return an array of notes from json-server
-	const fetchTasks = async () => {
-		const res = await fetch("http://localhost:2137/notes");
-		const data = await res.json();
+	// // Return an array of notes from json-server
+	// const fetchTasks = async () => {
+	// 	const res = await fetch("http://localhost:2137/notes");
+	// 	const data = await res.json();
 
-		return data;
-	};
+	// 	return data;
+	// };
 
 	// Toggle form on
 	const openNoteForm = (e) => {
@@ -43,14 +45,31 @@ const App = () => {
 	//Add a new note to the page
 	const addNote = (e, note) => {
 		e.preventDefault();
+
 		note = {
 		...note,
 		bgColor: randHex(),
 		};
+
+		localStorage.setItem(
+			"notes", 
+			JSON.stringify([...storedNotes, note])
+		);
+
 		setNotes([...notes, note]);
 		toggleNoteForm(false);
-		console.log(note);
 	};
+
+	// usuwanie, nie działa, naprawić
+	const removeNote = (e) => {
+		e.preventDefault();
+		localStorage.clear();
+		setNotes([]);
+		//const n = storedNotes.filter(x => x === sr);
+		//console.log(n);
+
+
+	}
 
 	// Returns a random hex color
 	const randHex = () => {
@@ -66,6 +85,7 @@ const App = () => {
 
 	const ctxElement = {
 		addNote: addNote,
+		removeNote: removeNote,
 		openNoteForm: openNoteForm,
 		randHex: randHex,
 	};

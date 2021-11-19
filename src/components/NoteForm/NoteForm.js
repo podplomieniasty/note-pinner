@@ -47,10 +47,8 @@ const NoteForm = ({cords, onClose, onSubmit}) => {
                             placeholder="Content"
                             onChange={handleInput}
                         />
-                        <Button
-
-                        >
-                            Click me!
+                        <Button>
+                            Add me!
                         </Button>
                     </form>
                 </div>
