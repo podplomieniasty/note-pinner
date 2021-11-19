@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Header from "./components/Header/Header";
 import NoteForm from "./components/NoteForm/NoteForm";
 import AppContext from "./context";
+import Footer from "./components/Footer/Footer";
 
 
 const App = () => {
@@ -106,6 +107,7 @@ const App = () => {
 		)}
 		<Header />
 		<Wrapper notes={notes} />
+		<Footer/>
 		</AppContext.Provider>
 	);
 };
