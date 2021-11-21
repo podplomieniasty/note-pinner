@@ -20,7 +20,7 @@ const Note = ({posX, posY, title, content, bgColor}) => {
             >
             <button onClick={(e) => {context.removeNote(e)}}className={styles.dropNote}/>
             <h2>{title}</h2>
-            <p>{content}</p>
+            {content ? (<p>{content}</p>) : null }    
         </div>)}
         </AppContext.Consumer>
     )

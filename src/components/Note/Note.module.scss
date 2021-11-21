@@ -1,13 +1,29 @@
 .note {
     position: absolute;
     width: 250px;
-    height: fit-content;
-    min-height: 250px;
+    height: 250px;
     box-shadow: 2px 2px 8px black;
     word-wrap: break-word;
     animation-name: showNote;
     animation-duration: 0.5s;
+    text-align: justify;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
+    ::-webkit-scrollbar {
+        width: 7px;
+        margin-left: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: darkslategray;
+        border-radius: 10%;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: lightslategray;
+    }
+    
     h2 {
         text-align: center;
         margin-top: 20px;
@@ -16,7 +32,8 @@
     p {
         margin: 20px 10px;
         font-weight: 500;
-        text-align: justify;
+        overflow-y: scroll;
+        height: 160px;
     }
 }
 
