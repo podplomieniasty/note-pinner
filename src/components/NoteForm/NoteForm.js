@@ -3,23 +3,26 @@ import AppContext from '../../context';
 import Button from '../Button/Button';
 import styles from './NoteForm.module.scss'
 
-const NoteForm = ({cords, onClose, onSubmit}) => {
+const NoteForm = ({cords, onClose}) => {
+
+    // if note's position were to be outside of devices width 
+    const noteWidth = 250;
+    cords[0] = window.innerWidth - noteWidth < cords[0] ? window.innerWidth - noteWidth - 20: cords[0];
 
     const initInput = {
         title: '',
         content: '',
-        posX: '',
-        posY: '',
+        posX: cords[0]+"px",
+        posY: cords[1]+"px",
         bgColor: '',
     }
 
     const [input, modifyInput] = useState(initInput);
 
     const handleInput = (e) => {
+
         modifyInput({
             ...input,
-            posX: cords[0]+"px",
-            posY: cords[1]+"px",
             [e.target.name]: e.target.value, 
         });
     }

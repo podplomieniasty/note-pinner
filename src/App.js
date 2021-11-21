@@ -44,7 +44,7 @@ const App = () => {
 		toggleNoteForm(false);
 	};
 
-	//Add a new note to the page
+	// Add a new note to the page
 	const addNote = (e, note) => {
 		e.preventDefault();
 

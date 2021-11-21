@@ -10,7 +10,7 @@ const Note = ({posX, posY, title, content, bgColor}) => {
     return(
         <AppContext.Consumer>
         {(context) => (
-            <div 
+            <div
             className={styles.note}
             style={{
                 top: posY,
