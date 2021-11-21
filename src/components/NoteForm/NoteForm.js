@@ -12,8 +12,8 @@ const NoteForm = ({cords, onClose}) => {
     const initInput = {
         title: '',
         content: '',
-        posX: cords[0]+"px",
-        posY: cords[1]+"px",
+        posX: cords[0],
+        posY: cords[1],
         bgColor: '',
     }
 
