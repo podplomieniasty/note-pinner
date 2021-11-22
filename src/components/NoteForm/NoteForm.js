@@ -40,6 +40,7 @@ const NoteForm = ({cords, onClose}) => {
                             type="text" 
                             name="title"
                             placeholder="Title"
+                            maxLength="40"
                             required
                             onChange={handleInput}
                         />
